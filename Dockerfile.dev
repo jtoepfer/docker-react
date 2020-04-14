@@ -1,0 +1,12 @@
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY package*.json ./
+RUN npm install
+
+# If using docker compose it maps to local 
+# so this is not necessarily needed, but left for reference
+COPY . .
+
+CMD ["npm", "run", "start"]
